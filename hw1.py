@@ -21,9 +21,6 @@ with open(cwb_filename) as csvfile:
 # Part. 3
 #=======================================
 # Analyze data depend on your group and store it to target_data like:
-# Retrive all data points which station id is "C0X260" as a list.
-#target_data = list(filter(lambda item: (item['station_id'] == 'C0A880' and item['HUMD'] != '-99.000' and item['HUMD'] != '-999.000'), data))
-#target_data = list(filter(lambda item: (item['HUMD'] != '-99.000' and item['HUMD'] != '-999.000'), data))
 target_data = list(sorted(data, key = lambda item: item['station_id']))
 
 list1 = []
@@ -49,11 +46,35 @@ for i in range(len(target_data)):
 
 
 list3 = []
-for i in range(len(list1)):
-   list2 = []
-   list2.append(list1[i]["station_id"])
-   list2.append(list1[i]['HUMD'])
-   list3.append(list2)
+target_data = list(filter(lambda item: item['station_id'] == 'C0A880', list1))
+list2 = []
+list2.append(target_data[0]["station_id"])
+list2.append(target_data[0]['HUMD'])
+list3.append(list2)
+
+target_data = list(filter(lambda item: item['station_id'] == 'C0F9A0', list1))
+list2 = []
+list2.append(target_data[0]["station_id"])
+list2.append(target_data[0]['HUMD'])
+list3.append(list2)
+
+target_data = list(filter(lambda item: item['station_id'] == 'C0G640', list1))
+list2 = []
+list2.append(target_data[0]["station_id"])
+list2.append(target_data[0]['HUMD'])
+list3.append(list2)
+
+target_data = list(filter(lambda item: item['station_id'] == 'C0R190', list1))
+list2 = []
+list2.append(target_data[0]["station_id"])
+list2.append(target_data[0]['HUMD'])
+list3.append(list2)
+
+target_data = list(filter(lambda item: item['station_id'] == 'C0X260', list1))
+list2 = []
+list2.append(target_data[0]["station_id"])
+list2.append(target_data[0]['HUMD'])
+list3.append(list2)
 
 #=======================================
 
@@ -61,3 +82,4 @@ for i in range(len(list1)):
 #=======================================
 # Print result
 print(list3)
+
